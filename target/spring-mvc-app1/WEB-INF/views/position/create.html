@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Position</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/position/create}" th:object="${position}">
+  <label for="name">Введите наименования должности</label>
+  <input type="text" th:field="*{name}" id="name"/>
+  <input type="submit" value="Create!"/>
+</form>
+</body>
+</html>

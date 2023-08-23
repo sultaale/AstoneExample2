@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/project/create}" th:object="${project}">
+  <label for="name">Введите наименования проекта</label>
+  <input type="text" th:field="*{name}" id="name"/>
+  <input type="submit" value="Create!"/>
+</form>
+</body>
+</html>

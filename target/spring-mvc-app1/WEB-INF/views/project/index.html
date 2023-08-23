@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Project Index</title>
+</head>
+<body>
+<div>
+    <h3>Список проектов</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Наименование</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="project : ${projects}">
+            <td th:text="${project.getId()}"></td>
+            <td th:text="${project.getName()}"></td>
+            <td><form th:method="POST" th:action="@{/project/delete/{id}(id=${project.getId()})}">
+                <input type="submit" value="Delete"/>
+            </form></td>
+            <td><form th:method="GET" th:action="@{/project/employees/{id}(id=${project.getId()})}">
+                <input type="submit" value="Employees"/>
+            </form></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<a th:href="@{/project/create}">Create project</a>
+    <a th:href="@{/index}">Main page</a>
+</body>
+</html>

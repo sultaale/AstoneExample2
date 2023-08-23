@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Position Index</title>
+</head>
+<body>
+<div>
+    <h3>Список должностей</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Наименование</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="position : ${positions}">
+            <td th:text="${position.getId()}"></td>
+            <td th:text="${position.getName()}"></td>
+            <td><form th:method="POST" th:action="@{/position/delete/{id}(id=${position.getId()})}">
+                <input type="submit" value="Delete"/>
+            </form></td>
+            <td><form th:method="GET" th:action="@{/position/employees/{id}(id=${position.getId()})}">
+                <input type="submit" value="Employees"/>
+            </form></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<a th:href="@{/position/create}">Create position</a>
+<a th:href="@{/index}">Main page</a>
+</body>
+</html>

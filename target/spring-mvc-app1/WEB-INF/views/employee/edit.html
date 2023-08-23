@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit employee</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/employee/edit/{id}(id=${employee.getId()})}" th:object="${employee}">
+  <label for="first_name">Введите имя</label>
+  <input type="text" th:field="*{getFirstName}" id="first_name"/>
+  <label for="last_name">Введите фамилию</label>
+  <input type="text" th:field="*{getLastName}" id="last_name"/>
+  <label for="position">Выберите должность</label>
+  <select th:object="${employee}" th:field="*{getPosition}" id="position">
+    <option th:each="position : ${positions}" th:value="${position.getId()}" th:text="${position.getName()}">
+    </option>
+  </select>
+  <select th:object="${employee}" th:field="*{project_id}" id="project">
+    <option th:each="project : ${projects}" th:value="${project.getId()}" th:text="${project.getName()}">
+    </option>
+  </select>
+  <input type="submit" value="Редактировать!"/>
+</form>
+
+</body>
+</html>
