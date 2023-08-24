@@ -77,4 +77,6 @@ public class Employee {
     public void setProjects(List<Project> projectsName) {
         this.projects = projectsName;
     }
+
+    // Please add toString, equals, hashcode methods
 }

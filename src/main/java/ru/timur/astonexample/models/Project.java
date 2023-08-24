@@ -60,4 +60,6 @@ public class Project {
     public void setEmployees(List<Employee> employees) {
         this.employees = employees;
     }
+
+    // Please add toString methods
 }
